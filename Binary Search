@@ -1,0 +1,27 @@
+def BinarySearch(array):
+    max_index = len(array)-1
+    min_index = 0
+    mid = 0
+    Found = False
+    searchitem = int(input("Enter Search Item: "))
+    while True:
+        for i in range(min_index,max_index):
+            prev = mid
+            mid = min_index + round( (max_index - min_index) / 2 )
+            if array[mid] == searchitem:
+                Found = True
+                break
+            elif array[mid] > searchitem:
+                max_index = mid
+            elif array[mid] < searchitem:
+                min_index = mid
+            if max_index-min_index == 1:
+                Found = False
+                break
+            print("minimum index {}".format(min_index))
+            print("maximum index {}".format(max_index))
+            print("mid index {}".format(mid))
+    if Found == True:
+        print("Found in position {}".format(mid))
+    else:
+        print("Error")
